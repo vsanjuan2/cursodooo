@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- sequences -->
+        <record id="budget_number_type" model="ir.sequence.type">
+            <field name="name">Budget number type</field>
+            <field name="code">budget_number</field>
+        </record>
+        <record id="budget_number" model="ir.sequence">
+            <field name="name">Budget number</field>
+            <field name="code">budget_number</field>
+            <field name="prefix">Pre</field>
+            <field name="padding">3</field>
+        </record>
+                
+
+        <!-- views -->
+        <record id="view_budgets_budget_form" model="ir.ui.view">
+            <field name="name">view.budgets.budget.form</field>
+            <field name="model">budgets.budget</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Budget" version="7.0">
+                    <group>
+                        <group>
+                            <field name="budget_no"/>
+                            <field name="name"/>
+                        </group>
+                        <field name="description"/>
+                        <group>
+                            <field name="budget_date"/>
+                            <field name="amount"/>
+                            <field name="author_id"/>
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_budgets_budget_tree" model="ir.ui.view">
+            <field name="name">view.budgets.budget.tree</field>
+            <field name="model">budgets.budget</field>
+            <field name="arch" type="xml">
+                <tree string="Courses" version="7.0">
+                    <field name="budget_no"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="budget_date"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Actions -->
+        <record id="action_budgets" model="ir.actions.act_window">
+            <field name="name">Budgets</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">budgets.budget</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_budgets_budget_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new budget.
+                </p>
+            </field>
+        </record>
+        
+
+        <menuitem id="budget_menu_root" 
+            name="Budget"
+            sequence="1"/> 
+
+            <!-- Folders -->
+            
+            <menuitem id="budget_menu_folder" 
+                name="Budget"
+                parent="budget_menu_root"
+                sequence="1"/>
+                
+            <!--
+
+            <menuitem id="budget_menu_responsible" 
+                name="Personal"
+                parent="budget_menu_root"
+                sequence="1"/>
+                
+            -->
+
+            <menuitem id="menu_budgets" 
+                parent="budget_menu_folder"
+                name="Budgets" 
+                sequence="1" 
+                action="action_budgets"/>
+                
+                
+                <!-- menuitems -->
+                
+                
+        <!--
+
+        <menuitem id="mi_modulo_root"
+            name="Budgets"
+            sequence="1"/>
+
+        <menuitem id="mi_modulo_folder"
+            name="Budget"
+            parent="mi_modulo_root"
+            sequence="1"/>
+
+        <menuitem id="mi_modelo_menu"
+            name="Budget"
+            action="action_budgets"
+            parent="mi_modulo_folder"
+            sequence="1"/>
+            
+        -->
+
+                
+    </data>
+</openerp>

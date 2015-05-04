@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Root -->
+        <menuitem id="budget_menu_root" name="Budget"/>
+
+            <!-- Folders -->
+            <menuitem id="budget_menu_folder" name="Budget"
+                parent="budget_menu_root"/>
+
+            <menuitem id="budget_menu_responsible" name="Personal"
+                parent="budget_menu_root"/>
+
+    </data>
+</openerp>
